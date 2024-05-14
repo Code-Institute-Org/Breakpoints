@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breakpoints Demo</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            /* margin: 0;
+      padding: 0; */
+        }
+
+        .container {
+            margin-top: 100px;
+            margin-bottom: 50px;
+            border: 2px solid transparent;
+            padding: 50px;
+            background-color: #e6ecf0;
+            font-size: 24px;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .screen-size {
+            font-size: 18px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background-color: #4a4a4f;
+            color: #fff;
+            padding: 10px;
+        }
+
+        @media (max-width: 575.98px) {
+            .container {
+                background-color: #e84610;
+            }
+        }
+
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .container {
+                background-color: #009fe3;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .container {
+                background-color: #23bbbb;
+            }
+        }
+
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .container {
+                background-color: #445261;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                background-color: #ff5a60;
+            }
+
+            @media (min-width: 1400px) {
+                .container {
+                    background-color: #efb920;
+                }
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="container border"><span id="screen-size-info"></span></div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function updateScreenSize() {
+            const screenSizeInfo = document.getElementById('screen-size-info');
+            const screenWidth = window.innerWidth;
+            let screenSize = '';
+
+            if (screenWidth < 576) {
+                screenSize = 'Extra Small <br> < 576px';
+            } else if (screenWidth >= 576 && screenWidth < 768) {
+                screenSize = 'Small <br> >= 576px';
+            } else if (screenWidth >= 768 && screenWidth < 992) {
+                screenSize = 'Medium <br> >= 768px';
+            } else if (screenWidth >= 992 && screenWidth < 1200) {
+                screenSize = 'Large <br> >= 992px';
+            } else if (screenWidth >= 1200 && screenWidth < 1400) {
+                screenSize = 'Extra Large <br> >= 1200px';
+            } else {
+                screenSize = 'XXL <br> >= 1400px';
+            }
+
+            screenSizeInfo.innerHTML = screenSize;
+        }
+
+        window.addEventListener('resize', updateScreenSize);
+        updateScreenSize();
+    </script>
+
+</body>
+
+</html>
